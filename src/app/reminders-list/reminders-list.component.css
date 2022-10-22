@@ -1,0 +1,71 @@
+.reminders-list-container h2 {
+  color: #1285ff;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.reminders-list-container {
+  background-color: #233244;
+  width: 30%;
+  height: 100%;
+  margin-top: 0;
+}
+
+.reminders-list-container .reminder {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  padding: 7px 0;
+  justify-content: space-between;
+  border-radius: 15px;
+}
+
+.reminders-list-container .reminder .left-reminder-div {
+  display: flex;
+  align-items: center;
+}
+
+.reminders-list-container .reminder:hover {
+  cursor: pointer;
+  background-color: #435060;
+}
+
+.reminders-list-container .reminder h3 {
+  color: #fefeff;
+  font-weight: 300;
+}
+
+.reminders-list-container .reminder h4 {
+  color: #a1a6af;
+  font-weight: 300;
+  margin-right: 30px;
+}
+
+.reminders-list-container .reminder .reminder-logo {
+  background: url("../../assets/apple-reminders.png");
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.add-new-list {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #9fa2ae;
+  display: flex;
+  align-items: center;
+}
+
+.add-new-list .add-icon {
+  background: url("../../assets/plus-icon.png");
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.add-new-list .add-icon:hover {
+  cursor: pointer;
+}
