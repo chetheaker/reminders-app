@@ -2,8 +2,16 @@
 
 const router = require("express").Router();
 
-router.get("/hello", (req, res) => {
-  res.send("this is working");
-});
+const { getAllLists, createList } = require("./controllers/lists.controller");
+const {
+  getRemindersByList,
+  createReminder,
+} = require("./controllers/reminders.controller");
+
+router.get("/lists", getAllLists);
+router.post("/lists", createList);
+
+router.get("/reminders/:listId", getRemindersByList);
+router.post("/reminders", createReminder);
 
 module.exports = router;

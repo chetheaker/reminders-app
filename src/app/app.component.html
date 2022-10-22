@@ -1,2 +1,3 @@
-<app-reminders-list></app-reminders-list>
+<app-reminders-list (newActive)="changeNewActive($event)"></app-reminders-list>
+<app-tasks [list]="activeList"></app-tasks>
 <router-outlet></router-outlet>

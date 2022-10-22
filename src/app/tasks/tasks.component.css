@@ -1,0 +1,58 @@
+.task-header {
+  width: 70vw;
+  display: flex;
+  justify-content: space-between;
+  color: #1285ff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.add-new-reminder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-new-reminder input {
+  background-color: #424f5e;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  width: 80%;
+  margin: 10px;
+  outline: #424f5e;
+  color: #feffef;
+  font-size: 1rem;
+}
+
+.add-new-reminder .add-icon {
+  background: url("../../assets/plus-icon.png");
+  height: 25px;
+  width: 25px;
+  background-size: cover;
+  border: none;
+  padding: 0;
+}
+
+.add-new-reminder .add-icon:hover {
+  cursor: pointer;
+}
+
+.tasks {
+  padding: 20px;
+  color: #feffef;
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.no-reminders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+
+.no-reminders h2 {
+  color: #404b57;
+  font-size: 2rem;
+}

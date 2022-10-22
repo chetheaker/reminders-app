@@ -1,16 +1,27 @@
 <div class="reminders-list-container">
-  <h2>My Lists</h2>
   <div class="reminders-list">
-    <div *ngFor="let reminder of remindersList" class="reminder">
+    <h2>My Lists</h2>
+    <div
+      *ngFor="let reminder of remindersList"
+      class="reminder"
+      [ngClass]="{ active: activeList == reminder }"
+      (click)="handleReminderClick(reminder)"
+    >
       <div class="left-reminder-div">
         <div class="reminder-logo"></div>
         <h3>{{ reminder.name }}</h3>
       </div>
-      <h4>{{ reminder.totalReminders }}</h4>
+      <div class="right-reminder-div">
+        <h4>{{ reminder.length }}</h4>
+      </div>
     </div>
   </div>
-  <div class="add-new-list">
-    <div class="add-icon"></div>
-    <p>Add List</p>
-  </div>
+  <form
+    class="add-new-list"
+    [formGroup]="addListForm"
+    (ngSubmit)="handleSubmit()"
+  >
+    <input type="text" formControlName="name" />
+    <button class="add-icon"></button>
+  </form>
 </div>

@@ -9,9 +9,8 @@ body {
   background-color: #1d2123;
   font-family: "SFPro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  width: 100%;
+  width: 100vh;
   height: 100vh;
-  overflow-y: hidden;
 }
 
 html,
@@ -135,4 +134,10 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+app-root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
 }

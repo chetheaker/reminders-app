@@ -1,0 +1,22 @@
+<div class="task-header">
+  <h1>{{ list.name }}</h1>
+  <h1>{{ list.length }}</h1>
+</div>
+<form
+  class="add-new-reminder"
+  [formGroup]="addReminderForm"
+  (ngSubmit)="handleAddReminder()"
+>
+  <input type="text" formControlName="content" />
+  <button class="add-icon"></button>
+</form>
+<div class="tasks" *ngIf="reminders.length; else elseBlock">
+  <div class="task" *ngFor="let reminder of reminders">
+    <h2>{{ reminder.content }}</h2>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class="no-reminders">
+    <h2>No reminders</h2>
+  </div>
+</ng-template>

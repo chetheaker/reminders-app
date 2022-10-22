@@ -1,7 +1,14 @@
 type ReminderName = {
   name: string;
-  id: number;
-  totalReminders: number
+  id: string;
+  length: number;
 };
 
-export { ReminderName };
+type Reminder = {
+  content: string;
+  completed: boolean;
+  id: string;
+  listId: string;
+};
+
+export { ReminderName, Reminder };
