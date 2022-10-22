@@ -49,6 +49,7 @@ export class RemindersListComponent implements OnInit {
         length: 0,
       };
       this.addNewList(list);
+      this.addListForm.reset();
     }
   }
 

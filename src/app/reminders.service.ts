@@ -28,4 +28,13 @@ export class RemindersService {
       this.serverApiUrl + '/reminders/' + listId
     );
   }
+
+  addReminderToList(reminder: Reminder): Observable<any> {
+    console.log(reminder);
+    return this.http.post(
+      this.serverApiUrl + '/reminders',
+      reminder,
+      this.httpOptions
+    );
+  }
 }

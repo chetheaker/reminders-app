@@ -2,6 +2,7 @@ import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { RemindersService } from '../reminders.service';
 import { Reminder, ReminderName } from '../types';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-tasks',
@@ -21,7 +22,7 @@ export class TasksComponent implements OnInit {
   list: ReminderName = {
     name: 'Reminders',
     length: 0,
-    id: 'r4444',
+    id: 'default',
   };
 
   ngOnInit(): void {}
@@ -38,7 +39,20 @@ export class TasksComponent implements OnInit {
 
   handleAddReminder() {
     const content = this.addReminderForm.value.content;
-    this.addReminderForm.value.content = '';
-    console.log(content);
+    if (!content) return;
+    const newReminder = {
+      content: content,
+      completed: false,
+      id: uuidv4(),
+      listId: this.list.id,
+    };
+    this.addReminder(newReminder);
+    this.addReminderForm.reset();
+  }
+
+  addReminder(reminder: Reminder) {
+    return this.remindersService
+      .addReminderToList(reminder)
+      .subscribe((reminder) => this.reminders.push(reminder));
   }
 }

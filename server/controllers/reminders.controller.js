@@ -14,11 +14,11 @@ const getRemindersByList = async (req, res) => {
   }
 };
 
-const createReminder = (req, res) => {
+const createReminder = async (req, res) => {
   try {
-    remindersModel.addReminder(req.body);
+    await remindersModel.addReminder(req.body);
     res.status(201);
-    res.send("reminder added successfully");
+    res.send(req.body);
   } catch (e) {
     console.log("create new reminder error: ", e);
     res.status(500);
