@@ -1,18 +1,38 @@
 <div class="task-header">
   <h1>{{ list.name }}</h1>
-  <h1>{{ list.length }}</h1>
+  <h1>{{ reminders.length }}</h1>
 </div>
 <form
+  *ngIf="list.id !== 'default'"
   class="add-new-reminder"
   [formGroup]="addReminderForm"
   (ngSubmit)="handleAddReminder()"
 >
-  <input type="text" formControlName="content" />
+  <input type="text" formControlName="content" placeholder="Add reminder"/>
   <button class="add-icon"></button>
 </form>
-<div class="tasks" *ngIf="reminders.length; else elseBlock">
+<div
+  class="tasks"
+  *ngIf="reminders.length || completedReminders.length; else elseBlock"
+>
   <div class="task" *ngFor="let reminder of reminders">
-    <h2>{{ reminder.content }}</h2>
+    <input
+      type="checkbox"
+      name="todo"
+      (click)="handleReminderComplete(reminder)"
+    />
+    <label for="todo">{{ reminder.content }}</label>
+    <div class="delete-task" (click)="deleteReminder(reminder)"></div>
+  </div>
+  <div class="task" *ngFor="let completedReminder of completedReminders">
+    <input
+      checked
+      type="checkbox"
+      name="todo"
+      (click)="handleReminderIncomplete(completedReminder)"
+    />
+    <label for="todo">{{ completedReminder.content }}</label>
+    <div class="delete-task" (click)="deleteReminder(completedReminder)"></div>
   </div>
 </div>
 <ng-template #elseBlock>

@@ -11,7 +11,7 @@ export class AppComponent {
   activeList: ReminderName = {
     name: 'Reminders',
     length: 0,
-    id: 'r4444',
+    id: 'default',
   };
 
   changeNewActive(reminder: ReminderName) {

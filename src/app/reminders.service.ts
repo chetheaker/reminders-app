@@ -30,11 +30,24 @@ export class RemindersService {
   }
 
   addReminderToList(reminder: Reminder): Observable<any> {
-    console.log(reminder);
     return this.http.post(
       this.serverApiUrl + '/reminders',
       reminder,
       this.httpOptions
     );
+  }
+
+  toggleReminderCompleted(reminder: Reminder): Observable<any> {
+    return this.http.put(
+      this.serverApiUrl + '/reminders',
+      reminder,
+      this.httpOptions
+    );
+  }
+
+  deleteReminder(id: string): Observable<any> {
+    const url = this.serverApiUrl + '/reminders/' + id;
+    console.log(url);
+    return this.http.delete(url, this.httpOptions);
   }
 }

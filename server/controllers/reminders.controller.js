@@ -26,4 +26,28 @@ const createReminder = async (req, res) => {
   }
 };
 
-module.exports = { getRemindersByList, createReminder };
+const updateReminderCompleted = async (req, res) => {
+  try {
+    const rme = await remindersModel.updateReminder(req.body);
+    res.send(rme);
+  } catch (e) {
+    console.log(e);
+    res.send(500);
+  }
+};
+
+const deleteReminder = async (req, res) => {
+  try {
+    const result = await remindersModel.deleteReminder(req.params);
+    res.send(result);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+module.exports = {
+  getRemindersByList,
+  createReminder,
+  updateReminderCompleted,
+  deleteReminder,
+};

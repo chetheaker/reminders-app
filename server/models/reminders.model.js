@@ -20,4 +20,28 @@ const addReminder = async (reminder) => {
   });
 };
 
-module.exports = { fetchRemindersByList, addReminder };
+const updateReminder = async (reminder) => {
+  console.log("reminder changed to ", !reminder.completed);
+  return reminders.updateOne(
+    { id: reminder.id },
+    {
+      $set: { completed: !reminder.completed },
+    }
+  );
+};
+
+const deleteReminder = async (id) => {
+  const reminderToDelete = await reminders.find(id).toArray();
+  await lists.updateOne(
+    { id: reminderToDelete[0].listId },
+    { $inc: { length: -1 } }
+  );
+  return await reminders.deleteOne(id);
+};
+
+module.exports = {
+  fetchRemindersByList,
+  addReminder,
+  updateReminder,
+  deleteReminder,
+};

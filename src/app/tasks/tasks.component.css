@@ -39,10 +39,14 @@
 }
 
 .tasks {
-  padding: 20px;
+  padding: 20px 0;
   color: #feffef;
   font-size: 0.8rem;
   font-weight: 200;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin-left: 5%;
 }
 
 .no-reminders {
@@ -56,3 +60,47 @@
   color: #404b57;
   font-size: 2rem;
 }
+
+.tasks .task {
+  color: #effefe;
+  display: flex;
+  align-items: center;
+}
+
+.tasks .task label {
+  border-bottom: solid 0.5px #404b57;
+  padding: 25px 0 25px 10px;
+  width: 90%;
+  font-size: 1rem;
+}
+
+input[type="checkbox"] {
+  width: 1.5em;
+  height: 1.5em;
+  color: #363839;
+  border: 1px solid #bdc1c6;
+  border-radius: 50%;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+  transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+}
+input[type="checkbox"]:checked {
+  color: #fff;
+  border-color: #1285ff;
+  background: #1285ff;
+}
+
+.tasks .task .delete-task {
+  width: 20px;
+  height: 20px;
+  background: url("../../assets/delete-icon.png");
+  background-size: cover;
+  margin: 0 20px;
+}
+
+.tasks .task .delete-task:hover {
+  cursor: pointer;
+}
+
+
