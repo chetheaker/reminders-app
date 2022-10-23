@@ -47,6 +47,8 @@
   flex-direction: column;
   width: 95%;
   margin-left: 5%;
+  overflow-y: scroll;
+  height: 80%;
 }
 
 .no-reminders {
@@ -102,5 +104,3 @@ input[type="checkbox"]:checked {
 .tasks .task .delete-task:hover {
   cursor: pointer;
 }
-
-
